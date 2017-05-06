@@ -9,8 +9,9 @@ var apiController = require('./controllers/apiController');
 
 var app = express();
 var port = process.env.PORT || 3000;
+var dbConnection = process.env.PROD_MONGODB || 'mongodb://localhost/node-todo'
 
-mongoose.connect('mongodb://localhost/node-todo')
+mongoose.connect(dbConnection)
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('./public'));
